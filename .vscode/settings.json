@@ -36,6 +36,7 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": true,
+    "source.fixAll.prettier": true,
     "source.organizeImports.biome": true
   }
 }

@@ -1,0 +1,51 @@
+import { useGetMe } from "./useGetMe";
+import { useGithubRepos } from "./useGithubRepos";
+import { useRepoLanguages } from "./useRepoLanguages";
+import { useRepo } from "./useRepo";
+import { useRepoContent } from "./useRepoContent";
+import { useRepoCommits } from "./useRepoCommits";
+import { useRepoBranches } from "./useRepoBranches";
+import { useRepoReleases } from "./useRepoReleases";
+import { useRepoPulls } from "./useRepoPulls";
+import { useRepoIssues } from "./useRepoIssues";
+import { useRepoContributors } from "./useRepoContributors";
+import { useRepoCollaborators } from "./useRepoCollaborators";
+import { useRepoTrafficViews } from "./useRepoTrafficViews";
+import { useRepoTrafficClones } from "./useRepoTrafficClones";
+import { useRepoTrafficPopularReferrers } from "./useRepoTrafficPopularReferrers";
+import { useRepoTrafficPopularPaths } from "./useRepoTrafficPopularPaths";
+import { useRepoStatsCommitActivity } from "./useRepoStatsCommitActivity";
+import { useRepoStatsCodeFrequency } from "./useRepoStatsCodeFrequency";
+import { useRepoStatsContributors } from "./useRepoStatsContributors";
+import { useRepoStatsPunchCard } from "./useRepoStatsPunchCard";
+import { useRepoCommunityProfile } from "./useRepoCommunityProfile";
+
+export const useGetAndFormatGraphData = () => {
+  const { repos } = useGithubRepos();
+  const { data: me } = useGetMe();
+  const owner = repos[0]?.owner ?? me?.login;
+  const repoName = repos[0]?.name;
+  const contentPath = "";
+
+  const repoLanguages = useRepoLanguages(owner, repoName);
+  const repoDetails = useRepo(owner, repoName);
+  const repoContent = useRepoContent(owner, repoName, contentPath);
+  const repoCommits = useRepoCommits(owner, repoName);
+  const repoBranches = useRepoBranches(owner, repoName);
+  const repoReleases = useRepoReleases(owner, repoName);
+  const repoPulls = useRepoPulls(owner, repoName);
+  const repoIssues = useRepoIssues(owner, repoName);
+  const repoContributors = useRepoContributors(owner, repoName);
+  const repoCollaborators = useRepoCollaborators(owner, repoName);
+  const repoTrafficViews = useRepoTrafficViews(owner, repoName);
+  const repoTrafficClones = useRepoTrafficClones(owner, repoName);
+  const repoTrafficReferrers = useRepoTrafficPopularReferrers(owner, repoName);
+  const repoTrafficPaths = useRepoTrafficPopularPaths(owner, repoName);
+  const repoStatsCommitActivity = useRepoStatsCommitActivity(owner, repoName);
+  const repoStatsCodeFrequency = useRepoStatsCodeFrequency(owner, repoName);
+  const repoStatsContributors = useRepoStatsContributors(owner, repoName);
+  const repoStatsPunchCard = useRepoStatsPunchCard(owner, repoName);
+  const repoCommunityProfile = useRepoCommunityProfile(owner, repoName);
+
+  return { nodes: [], links: [] };
+};

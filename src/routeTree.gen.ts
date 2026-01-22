@@ -10,33 +10,310 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiGithubMyReposRouteImport } from './routes/api/github/my-repos'
+import { Route as ApiGithubGetMeRouteImport } from './routes/api/github/get-me'
+import { Route as ApiGithubRepoOwnerRepoRouteImport } from './routes/api/github/repo.$owner.$repo'
+import { Route as ApiGithubRepoOwnerRepoReleasesRouteImport } from './routes/api/github/repo.$owner.$repo.releases'
+import { Route as ApiGithubRepoOwnerRepoPullsRouteImport } from './routes/api/github/repo.$owner.$repo.pulls'
+import { Route as ApiGithubRepoOwnerRepoLanguagesRouteImport } from './routes/api/github/repo.$owner.$repo.languages'
+import { Route as ApiGithubRepoOwnerRepoIssuesRouteImport } from './routes/api/github/repo.$owner.$repo.issues'
+import { Route as ApiGithubRepoOwnerRepoContributorsRouteImport } from './routes/api/github/repo.$owner.$repo.contributors'
+import { Route as ApiGithubRepoOwnerRepoContentRouteImport } from './routes/api/github/repo.$owner.$repo.content'
+import { Route as ApiGithubRepoOwnerRepoCommunityProfileRouteImport } from './routes/api/github/repo.$owner.$repo.community-profile'
+import { Route as ApiGithubRepoOwnerRepoCommitsRouteImport } from './routes/api/github/repo.$owner.$repo.commits'
+import { Route as ApiGithubRepoOwnerRepoCollaboratorsRouteImport } from './routes/api/github/repo.$owner.$repo.collaborators'
+import { Route as ApiGithubRepoOwnerRepoBranchesRouteImport } from './routes/api/github/repo.$owner.$repo.branches'
+import { Route as ApiGithubRepoOwnerRepoTrafficViewsRouteImport } from './routes/api/github/repo.$owner.$repo.traffic.views'
+import { Route as ApiGithubRepoOwnerRepoTrafficClonesRouteImport } from './routes/api/github/repo.$owner.$repo.traffic.clones'
+import { Route as ApiGithubRepoOwnerRepoStatsPunchCardRouteImport } from './routes/api/github/repo.$owner.$repo.stats.punch-card'
+import { Route as ApiGithubRepoOwnerRepoStatsContributorsRouteImport } from './routes/api/github/repo.$owner.$repo.stats.contributors'
+import { Route as ApiGithubRepoOwnerRepoStatsCommitActivityRouteImport } from './routes/api/github/repo.$owner.$repo.stats.commit-activity'
+import { Route as ApiGithubRepoOwnerRepoStatsCodeFrequencyRouteImport } from './routes/api/github/repo.$owner.$repo.stats.code-frequency'
+import { Route as ApiGithubRepoOwnerRepoTrafficPopularReferrersRouteImport } from './routes/api/github/repo.$owner.$repo.traffic.popular.referrers'
+import { Route as ApiGithubRepoOwnerRepoTrafficPopularPathsRouteImport } from './routes/api/github/repo.$owner.$repo.traffic.popular.paths'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGithubMyReposRoute = ApiGithubMyReposRouteImport.update({
+  id: '/api/github/my-repos',
+  path: '/api/github/my-repos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGithubGetMeRoute = ApiGithubGetMeRouteImport.update({
+  id: '/api/github/get-me',
+  path: '/api/github/get-me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGithubRepoOwnerRepoRoute = ApiGithubRepoOwnerRepoRouteImport.update({
+  id: '/api/github/repo/$owner/$repo',
+  path: '/api/github/repo/$owner/$repo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGithubRepoOwnerRepoReleasesRoute =
+  ApiGithubRepoOwnerRepoReleasesRouteImport.update({
+    id: '/releases',
+    path: '/releases',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoPullsRoute =
+  ApiGithubRepoOwnerRepoPullsRouteImport.update({
+    id: '/pulls',
+    path: '/pulls',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoLanguagesRoute =
+  ApiGithubRepoOwnerRepoLanguagesRouteImport.update({
+    id: '/languages',
+    path: '/languages',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoIssuesRoute =
+  ApiGithubRepoOwnerRepoIssuesRouteImport.update({
+    id: '/issues',
+    path: '/issues',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoContributorsRoute =
+  ApiGithubRepoOwnerRepoContributorsRouteImport.update({
+    id: '/contributors',
+    path: '/contributors',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoContentRoute =
+  ApiGithubRepoOwnerRepoContentRouteImport.update({
+    id: '/content',
+    path: '/content',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoCommunityProfileRoute =
+  ApiGithubRepoOwnerRepoCommunityProfileRouteImport.update({
+    id: '/community-profile',
+    path: '/community-profile',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoCommitsRoute =
+  ApiGithubRepoOwnerRepoCommitsRouteImport.update({
+    id: '/commits',
+    path: '/commits',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoCollaboratorsRoute =
+  ApiGithubRepoOwnerRepoCollaboratorsRouteImport.update({
+    id: '/collaborators',
+    path: '/collaborators',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoBranchesRoute =
+  ApiGithubRepoOwnerRepoBranchesRouteImport.update({
+    id: '/branches',
+    path: '/branches',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoTrafficViewsRoute =
+  ApiGithubRepoOwnerRepoTrafficViewsRouteImport.update({
+    id: '/traffic/views',
+    path: '/traffic/views',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoTrafficClonesRoute =
+  ApiGithubRepoOwnerRepoTrafficClonesRouteImport.update({
+    id: '/traffic/clones',
+    path: '/traffic/clones',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoStatsPunchCardRoute =
+  ApiGithubRepoOwnerRepoStatsPunchCardRouteImport.update({
+    id: '/stats/punch-card',
+    path: '/stats/punch-card',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoStatsContributorsRoute =
+  ApiGithubRepoOwnerRepoStatsContributorsRouteImport.update({
+    id: '/stats/contributors',
+    path: '/stats/contributors',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoStatsCommitActivityRoute =
+  ApiGithubRepoOwnerRepoStatsCommitActivityRouteImport.update({
+    id: '/stats/commit-activity',
+    path: '/stats/commit-activity',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute =
+  ApiGithubRepoOwnerRepoStatsCodeFrequencyRouteImport.update({
+    id: '/stats/code-frequency',
+    path: '/stats/code-frequency',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute =
+  ApiGithubRepoOwnerRepoTrafficPopularReferrersRouteImport.update({
+    id: '/traffic/popular/referrers',
+    path: '/traffic/popular/referrers',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
+const ApiGithubRepoOwnerRepoTrafficPopularPathsRoute =
+  ApiGithubRepoOwnerRepoTrafficPopularPathsRouteImport.update({
+    id: '/traffic/popular/paths',
+    path: '/traffic/popular/paths',
+    getParentRoute: () => ApiGithubRepoOwnerRepoRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/github/get-me': typeof ApiGithubGetMeRoute
+  '/api/github/my-repos': typeof ApiGithubMyReposRoute
+  '/api/github/repo/$owner/$repo': typeof ApiGithubRepoOwnerRepoRouteWithChildren
+  '/api/github/repo/$owner/$repo/branches': typeof ApiGithubRepoOwnerRepoBranchesRoute
+  '/api/github/repo/$owner/$repo/collaborators': typeof ApiGithubRepoOwnerRepoCollaboratorsRoute
+  '/api/github/repo/$owner/$repo/commits': typeof ApiGithubRepoOwnerRepoCommitsRoute
+  '/api/github/repo/$owner/$repo/community-profile': typeof ApiGithubRepoOwnerRepoCommunityProfileRoute
+  '/api/github/repo/$owner/$repo/content': typeof ApiGithubRepoOwnerRepoContentRoute
+  '/api/github/repo/$owner/$repo/contributors': typeof ApiGithubRepoOwnerRepoContributorsRoute
+  '/api/github/repo/$owner/$repo/issues': typeof ApiGithubRepoOwnerRepoIssuesRoute
+  '/api/github/repo/$owner/$repo/languages': typeof ApiGithubRepoOwnerRepoLanguagesRoute
+  '/api/github/repo/$owner/$repo/pulls': typeof ApiGithubRepoOwnerRepoPullsRoute
+  '/api/github/repo/$owner/$repo/releases': typeof ApiGithubRepoOwnerRepoReleasesRoute
+  '/api/github/repo/$owner/$repo/stats/code-frequency': typeof ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute
+  '/api/github/repo/$owner/$repo/stats/commit-activity': typeof ApiGithubRepoOwnerRepoStatsCommitActivityRoute
+  '/api/github/repo/$owner/$repo/stats/contributors': typeof ApiGithubRepoOwnerRepoStatsContributorsRoute
+  '/api/github/repo/$owner/$repo/stats/punch-card': typeof ApiGithubRepoOwnerRepoStatsPunchCardRoute
+  '/api/github/repo/$owner/$repo/traffic/clones': typeof ApiGithubRepoOwnerRepoTrafficClonesRoute
+  '/api/github/repo/$owner/$repo/traffic/views': typeof ApiGithubRepoOwnerRepoTrafficViewsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/paths': typeof ApiGithubRepoOwnerRepoTrafficPopularPathsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/referrers': typeof ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/github/get-me': typeof ApiGithubGetMeRoute
+  '/api/github/my-repos': typeof ApiGithubMyReposRoute
+  '/api/github/repo/$owner/$repo': typeof ApiGithubRepoOwnerRepoRouteWithChildren
+  '/api/github/repo/$owner/$repo/branches': typeof ApiGithubRepoOwnerRepoBranchesRoute
+  '/api/github/repo/$owner/$repo/collaborators': typeof ApiGithubRepoOwnerRepoCollaboratorsRoute
+  '/api/github/repo/$owner/$repo/commits': typeof ApiGithubRepoOwnerRepoCommitsRoute
+  '/api/github/repo/$owner/$repo/community-profile': typeof ApiGithubRepoOwnerRepoCommunityProfileRoute
+  '/api/github/repo/$owner/$repo/content': typeof ApiGithubRepoOwnerRepoContentRoute
+  '/api/github/repo/$owner/$repo/contributors': typeof ApiGithubRepoOwnerRepoContributorsRoute
+  '/api/github/repo/$owner/$repo/issues': typeof ApiGithubRepoOwnerRepoIssuesRoute
+  '/api/github/repo/$owner/$repo/languages': typeof ApiGithubRepoOwnerRepoLanguagesRoute
+  '/api/github/repo/$owner/$repo/pulls': typeof ApiGithubRepoOwnerRepoPullsRoute
+  '/api/github/repo/$owner/$repo/releases': typeof ApiGithubRepoOwnerRepoReleasesRoute
+  '/api/github/repo/$owner/$repo/stats/code-frequency': typeof ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute
+  '/api/github/repo/$owner/$repo/stats/commit-activity': typeof ApiGithubRepoOwnerRepoStatsCommitActivityRoute
+  '/api/github/repo/$owner/$repo/stats/contributors': typeof ApiGithubRepoOwnerRepoStatsContributorsRoute
+  '/api/github/repo/$owner/$repo/stats/punch-card': typeof ApiGithubRepoOwnerRepoStatsPunchCardRoute
+  '/api/github/repo/$owner/$repo/traffic/clones': typeof ApiGithubRepoOwnerRepoTrafficClonesRoute
+  '/api/github/repo/$owner/$repo/traffic/views': typeof ApiGithubRepoOwnerRepoTrafficViewsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/paths': typeof ApiGithubRepoOwnerRepoTrafficPopularPathsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/referrers': typeof ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/github/get-me': typeof ApiGithubGetMeRoute
+  '/api/github/my-repos': typeof ApiGithubMyReposRoute
+  '/api/github/repo/$owner/$repo': typeof ApiGithubRepoOwnerRepoRouteWithChildren
+  '/api/github/repo/$owner/$repo/branches': typeof ApiGithubRepoOwnerRepoBranchesRoute
+  '/api/github/repo/$owner/$repo/collaborators': typeof ApiGithubRepoOwnerRepoCollaboratorsRoute
+  '/api/github/repo/$owner/$repo/commits': typeof ApiGithubRepoOwnerRepoCommitsRoute
+  '/api/github/repo/$owner/$repo/community-profile': typeof ApiGithubRepoOwnerRepoCommunityProfileRoute
+  '/api/github/repo/$owner/$repo/content': typeof ApiGithubRepoOwnerRepoContentRoute
+  '/api/github/repo/$owner/$repo/contributors': typeof ApiGithubRepoOwnerRepoContributorsRoute
+  '/api/github/repo/$owner/$repo/issues': typeof ApiGithubRepoOwnerRepoIssuesRoute
+  '/api/github/repo/$owner/$repo/languages': typeof ApiGithubRepoOwnerRepoLanguagesRoute
+  '/api/github/repo/$owner/$repo/pulls': typeof ApiGithubRepoOwnerRepoPullsRoute
+  '/api/github/repo/$owner/$repo/releases': typeof ApiGithubRepoOwnerRepoReleasesRoute
+  '/api/github/repo/$owner/$repo/stats/code-frequency': typeof ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute
+  '/api/github/repo/$owner/$repo/stats/commit-activity': typeof ApiGithubRepoOwnerRepoStatsCommitActivityRoute
+  '/api/github/repo/$owner/$repo/stats/contributors': typeof ApiGithubRepoOwnerRepoStatsContributorsRoute
+  '/api/github/repo/$owner/$repo/stats/punch-card': typeof ApiGithubRepoOwnerRepoStatsPunchCardRoute
+  '/api/github/repo/$owner/$repo/traffic/clones': typeof ApiGithubRepoOwnerRepoTrafficClonesRoute
+  '/api/github/repo/$owner/$repo/traffic/views': typeof ApiGithubRepoOwnerRepoTrafficViewsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/paths': typeof ApiGithubRepoOwnerRepoTrafficPopularPathsRoute
+  '/api/github/repo/$owner/$repo/traffic/popular/referrers': typeof ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api/github/get-me'
+    | '/api/github/my-repos'
+    | '/api/github/repo/$owner/$repo'
+    | '/api/github/repo/$owner/$repo/branches'
+    | '/api/github/repo/$owner/$repo/collaborators'
+    | '/api/github/repo/$owner/$repo/commits'
+    | '/api/github/repo/$owner/$repo/community-profile'
+    | '/api/github/repo/$owner/$repo/content'
+    | '/api/github/repo/$owner/$repo/contributors'
+    | '/api/github/repo/$owner/$repo/issues'
+    | '/api/github/repo/$owner/$repo/languages'
+    | '/api/github/repo/$owner/$repo/pulls'
+    | '/api/github/repo/$owner/$repo/releases'
+    | '/api/github/repo/$owner/$repo/stats/code-frequency'
+    | '/api/github/repo/$owner/$repo/stats/commit-activity'
+    | '/api/github/repo/$owner/$repo/stats/contributors'
+    | '/api/github/repo/$owner/$repo/stats/punch-card'
+    | '/api/github/repo/$owner/$repo/traffic/clones'
+    | '/api/github/repo/$owner/$repo/traffic/views'
+    | '/api/github/repo/$owner/$repo/traffic/popular/paths'
+    | '/api/github/repo/$owner/$repo/traffic/popular/referrers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api/github/get-me'
+    | '/api/github/my-repos'
+    | '/api/github/repo/$owner/$repo'
+    | '/api/github/repo/$owner/$repo/branches'
+    | '/api/github/repo/$owner/$repo/collaborators'
+    | '/api/github/repo/$owner/$repo/commits'
+    | '/api/github/repo/$owner/$repo/community-profile'
+    | '/api/github/repo/$owner/$repo/content'
+    | '/api/github/repo/$owner/$repo/contributors'
+    | '/api/github/repo/$owner/$repo/issues'
+    | '/api/github/repo/$owner/$repo/languages'
+    | '/api/github/repo/$owner/$repo/pulls'
+    | '/api/github/repo/$owner/$repo/releases'
+    | '/api/github/repo/$owner/$repo/stats/code-frequency'
+    | '/api/github/repo/$owner/$repo/stats/commit-activity'
+    | '/api/github/repo/$owner/$repo/stats/contributors'
+    | '/api/github/repo/$owner/$repo/stats/punch-card'
+    | '/api/github/repo/$owner/$repo/traffic/clones'
+    | '/api/github/repo/$owner/$repo/traffic/views'
+    | '/api/github/repo/$owner/$repo/traffic/popular/paths'
+    | '/api/github/repo/$owner/$repo/traffic/popular/referrers'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/github/get-me'
+    | '/api/github/my-repos'
+    | '/api/github/repo/$owner/$repo'
+    | '/api/github/repo/$owner/$repo/branches'
+    | '/api/github/repo/$owner/$repo/collaborators'
+    | '/api/github/repo/$owner/$repo/commits'
+    | '/api/github/repo/$owner/$repo/community-profile'
+    | '/api/github/repo/$owner/$repo/content'
+    | '/api/github/repo/$owner/$repo/contributors'
+    | '/api/github/repo/$owner/$repo/issues'
+    | '/api/github/repo/$owner/$repo/languages'
+    | '/api/github/repo/$owner/$repo/pulls'
+    | '/api/github/repo/$owner/$repo/releases'
+    | '/api/github/repo/$owner/$repo/stats/code-frequency'
+    | '/api/github/repo/$owner/$repo/stats/commit-activity'
+    | '/api/github/repo/$owner/$repo/stats/contributors'
+    | '/api/github/repo/$owner/$repo/stats/punch-card'
+    | '/api/github/repo/$owner/$repo/traffic/clones'
+    | '/api/github/repo/$owner/$repo/traffic/views'
+    | '/api/github/repo/$owner/$repo/traffic/popular/paths'
+    | '/api/github/repo/$owner/$repo/traffic/popular/referrers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiGithubGetMeRoute: typeof ApiGithubGetMeRoute
+  ApiGithubMyReposRoute: typeof ApiGithubMyReposRoute
+  ApiGithubRepoOwnerRepoRoute: typeof ApiGithubRepoOwnerRepoRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +325,220 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/github/my-repos': {
+      id: '/api/github/my-repos'
+      path: '/api/github/my-repos'
+      fullPath: '/api/github/my-repos'
+      preLoaderRoute: typeof ApiGithubMyReposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/github/get-me': {
+      id: '/api/github/get-me'
+      path: '/api/github/get-me'
+      fullPath: '/api/github/get-me'
+      preLoaderRoute: typeof ApiGithubGetMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/github/repo/$owner/$repo': {
+      id: '/api/github/repo/$owner/$repo'
+      path: '/api/github/repo/$owner/$repo'
+      fullPath: '/api/github/repo/$owner/$repo'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/github/repo/$owner/$repo/releases': {
+      id: '/api/github/repo/$owner/$repo/releases'
+      path: '/releases'
+      fullPath: '/api/github/repo/$owner/$repo/releases'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoReleasesRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/pulls': {
+      id: '/api/github/repo/$owner/$repo/pulls'
+      path: '/pulls'
+      fullPath: '/api/github/repo/$owner/$repo/pulls'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoPullsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/languages': {
+      id: '/api/github/repo/$owner/$repo/languages'
+      path: '/languages'
+      fullPath: '/api/github/repo/$owner/$repo/languages'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoLanguagesRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/issues': {
+      id: '/api/github/repo/$owner/$repo/issues'
+      path: '/issues'
+      fullPath: '/api/github/repo/$owner/$repo/issues'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoIssuesRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/contributors': {
+      id: '/api/github/repo/$owner/$repo/contributors'
+      path: '/contributors'
+      fullPath: '/api/github/repo/$owner/$repo/contributors'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoContributorsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/content': {
+      id: '/api/github/repo/$owner/$repo/content'
+      path: '/content'
+      fullPath: '/api/github/repo/$owner/$repo/content'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoContentRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/community-profile': {
+      id: '/api/github/repo/$owner/$repo/community-profile'
+      path: '/community-profile'
+      fullPath: '/api/github/repo/$owner/$repo/community-profile'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoCommunityProfileRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/commits': {
+      id: '/api/github/repo/$owner/$repo/commits'
+      path: '/commits'
+      fullPath: '/api/github/repo/$owner/$repo/commits'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoCommitsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/collaborators': {
+      id: '/api/github/repo/$owner/$repo/collaborators'
+      path: '/collaborators'
+      fullPath: '/api/github/repo/$owner/$repo/collaborators'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoCollaboratorsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/branches': {
+      id: '/api/github/repo/$owner/$repo/branches'
+      path: '/branches'
+      fullPath: '/api/github/repo/$owner/$repo/branches'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoBranchesRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/traffic/views': {
+      id: '/api/github/repo/$owner/$repo/traffic/views'
+      path: '/traffic/views'
+      fullPath: '/api/github/repo/$owner/$repo/traffic/views'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoTrafficViewsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/traffic/clones': {
+      id: '/api/github/repo/$owner/$repo/traffic/clones'
+      path: '/traffic/clones'
+      fullPath: '/api/github/repo/$owner/$repo/traffic/clones'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoTrafficClonesRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/stats/punch-card': {
+      id: '/api/github/repo/$owner/$repo/stats/punch-card'
+      path: '/stats/punch-card'
+      fullPath: '/api/github/repo/$owner/$repo/stats/punch-card'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoStatsPunchCardRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/stats/contributors': {
+      id: '/api/github/repo/$owner/$repo/stats/contributors'
+      path: '/stats/contributors'
+      fullPath: '/api/github/repo/$owner/$repo/stats/contributors'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoStatsContributorsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/stats/commit-activity': {
+      id: '/api/github/repo/$owner/$repo/stats/commit-activity'
+      path: '/stats/commit-activity'
+      fullPath: '/api/github/repo/$owner/$repo/stats/commit-activity'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoStatsCommitActivityRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/stats/code-frequency': {
+      id: '/api/github/repo/$owner/$repo/stats/code-frequency'
+      path: '/stats/code-frequency'
+      fullPath: '/api/github/repo/$owner/$repo/stats/code-frequency'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoStatsCodeFrequencyRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/traffic/popular/referrers': {
+      id: '/api/github/repo/$owner/$repo/traffic/popular/referrers'
+      path: '/traffic/popular/referrers'
+      fullPath: '/api/github/repo/$owner/$repo/traffic/popular/referrers'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoTrafficPopularReferrersRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
+    '/api/github/repo/$owner/$repo/traffic/popular/paths': {
+      id: '/api/github/repo/$owner/$repo/traffic/popular/paths'
+      path: '/traffic/popular/paths'
+      fullPath: '/api/github/repo/$owner/$repo/traffic/popular/paths'
+      preLoaderRoute: typeof ApiGithubRepoOwnerRepoTrafficPopularPathsRouteImport
+      parentRoute: typeof ApiGithubRepoOwnerRepoRoute
+    }
   }
 }
 
+interface ApiGithubRepoOwnerRepoRouteChildren {
+  ApiGithubRepoOwnerRepoBranchesRoute: typeof ApiGithubRepoOwnerRepoBranchesRoute
+  ApiGithubRepoOwnerRepoCollaboratorsRoute: typeof ApiGithubRepoOwnerRepoCollaboratorsRoute
+  ApiGithubRepoOwnerRepoCommitsRoute: typeof ApiGithubRepoOwnerRepoCommitsRoute
+  ApiGithubRepoOwnerRepoCommunityProfileRoute: typeof ApiGithubRepoOwnerRepoCommunityProfileRoute
+  ApiGithubRepoOwnerRepoContentRoute: typeof ApiGithubRepoOwnerRepoContentRoute
+  ApiGithubRepoOwnerRepoContributorsRoute: typeof ApiGithubRepoOwnerRepoContributorsRoute
+  ApiGithubRepoOwnerRepoIssuesRoute: typeof ApiGithubRepoOwnerRepoIssuesRoute
+  ApiGithubRepoOwnerRepoLanguagesRoute: typeof ApiGithubRepoOwnerRepoLanguagesRoute
+  ApiGithubRepoOwnerRepoPullsRoute: typeof ApiGithubRepoOwnerRepoPullsRoute
+  ApiGithubRepoOwnerRepoReleasesRoute: typeof ApiGithubRepoOwnerRepoReleasesRoute
+  ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute: typeof ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute
+  ApiGithubRepoOwnerRepoStatsCommitActivityRoute: typeof ApiGithubRepoOwnerRepoStatsCommitActivityRoute
+  ApiGithubRepoOwnerRepoStatsContributorsRoute: typeof ApiGithubRepoOwnerRepoStatsContributorsRoute
+  ApiGithubRepoOwnerRepoStatsPunchCardRoute: typeof ApiGithubRepoOwnerRepoStatsPunchCardRoute
+  ApiGithubRepoOwnerRepoTrafficClonesRoute: typeof ApiGithubRepoOwnerRepoTrafficClonesRoute
+  ApiGithubRepoOwnerRepoTrafficViewsRoute: typeof ApiGithubRepoOwnerRepoTrafficViewsRoute
+  ApiGithubRepoOwnerRepoTrafficPopularPathsRoute: typeof ApiGithubRepoOwnerRepoTrafficPopularPathsRoute
+  ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute: typeof ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute
+}
+
+const ApiGithubRepoOwnerRepoRouteChildren: ApiGithubRepoOwnerRepoRouteChildren =
+  {
+    ApiGithubRepoOwnerRepoBranchesRoute: ApiGithubRepoOwnerRepoBranchesRoute,
+    ApiGithubRepoOwnerRepoCollaboratorsRoute:
+      ApiGithubRepoOwnerRepoCollaboratorsRoute,
+    ApiGithubRepoOwnerRepoCommitsRoute: ApiGithubRepoOwnerRepoCommitsRoute,
+    ApiGithubRepoOwnerRepoCommunityProfileRoute:
+      ApiGithubRepoOwnerRepoCommunityProfileRoute,
+    ApiGithubRepoOwnerRepoContentRoute: ApiGithubRepoOwnerRepoContentRoute,
+    ApiGithubRepoOwnerRepoContributorsRoute:
+      ApiGithubRepoOwnerRepoContributorsRoute,
+    ApiGithubRepoOwnerRepoIssuesRoute: ApiGithubRepoOwnerRepoIssuesRoute,
+    ApiGithubRepoOwnerRepoLanguagesRoute: ApiGithubRepoOwnerRepoLanguagesRoute,
+    ApiGithubRepoOwnerRepoPullsRoute: ApiGithubRepoOwnerRepoPullsRoute,
+    ApiGithubRepoOwnerRepoReleasesRoute: ApiGithubRepoOwnerRepoReleasesRoute,
+    ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute:
+      ApiGithubRepoOwnerRepoStatsCodeFrequencyRoute,
+    ApiGithubRepoOwnerRepoStatsCommitActivityRoute:
+      ApiGithubRepoOwnerRepoStatsCommitActivityRoute,
+    ApiGithubRepoOwnerRepoStatsContributorsRoute:
+      ApiGithubRepoOwnerRepoStatsContributorsRoute,
+    ApiGithubRepoOwnerRepoStatsPunchCardRoute:
+      ApiGithubRepoOwnerRepoStatsPunchCardRoute,
+    ApiGithubRepoOwnerRepoTrafficClonesRoute:
+      ApiGithubRepoOwnerRepoTrafficClonesRoute,
+    ApiGithubRepoOwnerRepoTrafficViewsRoute:
+      ApiGithubRepoOwnerRepoTrafficViewsRoute,
+    ApiGithubRepoOwnerRepoTrafficPopularPathsRoute:
+      ApiGithubRepoOwnerRepoTrafficPopularPathsRoute,
+    ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute:
+      ApiGithubRepoOwnerRepoTrafficPopularReferrersRoute,
+  }
+
+const ApiGithubRepoOwnerRepoRouteWithChildren =
+  ApiGithubRepoOwnerRepoRoute._addFileChildren(
+    ApiGithubRepoOwnerRepoRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiGithubGetMeRoute: ApiGithubGetMeRoute,
+  ApiGithubMyReposRoute: ApiGithubMyReposRoute,
+  ApiGithubRepoOwnerRepoRoute: ApiGithubRepoOwnerRepoRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

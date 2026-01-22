@@ -1,13 +1,10 @@
-import { ForceGraph } from "@/components/ForceGraph";
+import ForceGraph from "react-force-graph-3d";
 import { useGetAndFormatGraphData } from "@/hooks/useGetAndFormatGraphData";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({ component: App });
 
 function App() {
-  const test = useGetAndFormatGraphData();
-  console.log({ test });
-  return (
-    <ForceGraph graphData={{ nodes: [{ id: 1 }, { id: 2 }], links: [{ source: 1, target: 2 }] }} />
-  );
+  const { graph } = useGetAndFormatGraphData();
+  return <ForceGraph graphData={graph} />;
 }
